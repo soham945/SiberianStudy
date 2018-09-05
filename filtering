@@ -1,0 +1,30 @@
+for i in *vcf;do bcftools view -O v -S /willerslev/datasets/dbp607/Final/Ryolka_R8837/Ryolka_R8837.txt $i| bcftools filter -e N_ALT==0 -O v| bcftools filter -e 'GT="./."' -O v > /willerslev/datasets/dbp607/Final/Ryolka_R8837/Ryolka_R8837_"${i##*/}"_filtered.vcf ; echo $i ; done
+
+for i in *vcf;do bcftools view -O v -S /willerslev/datasets/dbp607/Final/hChukchis_C499/hChukchis_C499.txt $i| bcftools filter -e N_ALT==0 -O v| bcftools filter -e 'GT="./."' -O v > /willerslev/datasets/dbp607/Final/hChukchis_C499/hChukchis_C499_"${i##*/}"_filtered.vcf ; echo $i ; done
+
+for i in *vcf;do bcftools view -O v -S /willerslev/datasets/dbp607/Final/hItelmens_M9983/hItelmens_M9983.txt $i| bcftools filter -e N_ALT==0 -O v| bcftools filter -e 'GT="./."' -O v > /willerslev/datasets/dbp607/Final/hItelmens_M9983/hItelmens_M9983_"${i##*/}"_filtered.vcf ; echo $i ; done
+
+for i in *vcf;do bcftools view -O v -S /willerslev/datasets/dbp607/Final/hKhantsE_K8813/hKhantsE_K8813.txt $i| bcftools filter -e N_ALT==0 -O v| bcftools filter -e 'GT="./."' -O v > /willerslev/datasets/dbp607/Final/hKhantsE_K8813/hKhantsE_K8813_"${i##*/}"_filtered.vcf ; echo $i ; done
+
+for i in *vcf;do bcftools view -O v -S /willerslev/datasets/dbp607/Final/hSaami_CGG1434/hSaami_CGG1434.txt $i| bcftools filter -e N_ALT==0 -O v| bcftools filter -e 'GT="./."' -O v > /willerslev/datasets/dbp607/Final/hSaami_CGG1434/hSaami_CGG1434_"${i##*/}"_filtered.vcf ; echo $i ; done
+
+for i in *vcf;do bcftools view -O v -S /willerslev/datasets/dbp607/Final/hKets_K9945/hKets_K9945.txt $i| bcftools filter -e N_ALT==0 -O v| bcftools filter -e 'GT="./."' -O v > /willerslev/datasets/dbp607/Final/hKets_K9945/hKets_K9945"${i##*/}"_filtered.vcf ; echo $i ; done
+
+for i in *vcf;do bcftools view -O v -S /willerslev/datasets/dbp607/Final/hEvenksA_E764/hEvenksA_E764.txt $i| bcftools filter -e N_ALT==0 -O v| bcftools filter -e 'GT="./."' -O v > /willerslev/datasets/dbp607/Final/hEvenksA_E764/hEvenksA_E764_"${i##*/}"_filtered.vcf ; echo $i ; done
+
+for i in *vcf;do bcftools view -O v -S /willerslev/datasets/dbp607/Final/hYukaghirs_Y490/hYukaghirs_Y490.txt $i| bcftools filter -e N_ALT==0 -O v| bcftools filter -e 'GT="./."' -O v > /willerslev/datasets/dbp607/Final/hYukaghirs_Y490/hYukaghirs_Y490_"${i##*/}"_filtered.vcf ; echo $i ; done
+
+for i in *vcf;do bcftools view -O v -S /willerslev/datasets/dbp607/Final/UstBalik_U8903/UstBalik_U8903.txt $i| bcftools filter -e N_ALT==0 -O v| bcftools filter -e 'GT="./."' -O v > /willerslev/datasets/dbp607/Final/UstBalik_U8903/UstBalik_U8903_"${i##*/}"_filtered.vcf ; echo $i ; done
+
+for i in *vcf;do bcftools view -O v -S /willerslev/datasets/dbp607/Final/hNganasans_CGG1445/hNganasans_CGG1445.txt $i| bcftools filter -e N_ALT==0 -O v| bcftools filter -e 'GT="./."' -O v > /willerslev/datasets/dbp607/Final/hNganasans_CGG1445/hNganasans_CGG1445_"${i##*/}"_filtered.vcf ; echo $i ; done
+
+####################################
+for i in *vcf;do  bcftools view -O v -S /willerslev/datasets/dbp607/HighCovGenomesSiberia_15x_new.txt $i | bcftools filter -e N_ALT==0 -O v | bgzip -c > /willerslev/datasets/dbp607/PanelA_new_filtered/EUA_"${i##*/}"_filtered.vcf.bgz; done
+
+for i in *vcf.bgz; do tabix -p vcf $i; done
+
+
+#####################################
+
+bcftools concat -O v UstBalik_U8903_Chr1.vcf_filtered.vcf stBalik_U8903_Chr2.vcf_filtered.vcf stBalik_U8903_Chr3.vcf_filtered.vcf stBalik_U8903_Chr4.vcf_filtered.vcf stBalik_U8903_Chr5.vcf_filtered.vcf stBalik_U8903_Chr6.vcf_filtered.vcf stBalik_U8903_Chr7.vcf_filtered.vcf stBalik_U8903_Chr8.vcf_filtered.vcf stBalik_U8903_Chr9.vcf_filtered.vcf stBalik_U8903_Chr10.vcf_filtered.vcf stBalik_U8903_Chr11.vcf_filtered.vcf stBalik_U8903_Chr12.vcf_filtered.vcf stBalik_U8903_Chr13.vcf_filtered.vcf stBalik_U8903_Chr14.vcf_filtered.vcf stBalik_U8903_Chr15.vcf_filtered.vcf stBalik_U8903_Chr16.vcf_filtered.vcf stBalik_U8903_Chr17.vcf_filtered.vcf stBalik_U8903_Chr18.vcf_filtered.vcf stBalik_U8903_Chr19.vcf_filtered.vcf stBalik_U8903_Chr20.vcf_filtered.vcf stBalik_U8903_Chr21.vcf_filtered.vcf stBalik_U8903_Chr22.vcf_filtered.vcf > _combined.vcf
+
